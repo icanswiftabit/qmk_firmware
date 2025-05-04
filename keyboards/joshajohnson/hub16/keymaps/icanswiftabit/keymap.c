@@ -15,36 +15,46 @@
  */
 #include QMK_KEYBOARD_H
 
+enum {
+    TD_DOT_COMMA,
+};
+
+// Tap Dance definitions
+tap_dance_action_t tap_dance_actions[] = {
+    // Tap once for Escape, twice for Caps Lock
+    [TD_DOT_COMMA] = ACTION_TAP_DANCE_DOUBLE(KC_DOT, KC_COMMA),
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT( /* Base */
-       KC_MUTE,        KC_MPLY,
+       KC_MPLY,        KC_MUTE,
     KC_PAST, KC_7,   KC_8,   KC_9,
     KC_PMNS, KC_4,   KC_5,   KC_6,
     KC_PPLS, KC_1,   KC_2,   KC_3,
-    MO(1),   KC_PENT,KC_0,   KC_PDOT
+    KC_PENT,   KC_TAB,KC_0,   TD(TD_DOT_COMMA)
   ),
 
   [1] = LAYOUT( /* LED Control */
         _______,           _______,
-    _______, UG_NEXT, UG_PREV,  UG_TOGG,
-    UG_VALD, UG_VALU, UG_HUED,  UG_HUEU,
-    UG_SATD, UG_SATU, _______,  _______,
-    _______, _______, QK_BOOT,  _______
-  ),
+    _______, _______, _______, _______,
+    _______, _______, _______, _______,
+    _______, _______, _______, _______,
+    _______, _______, _______, _______
+    ),
 };
 
-bool encoder_update_user(uint8_t index, bool clockwise) {
+bool encoder_update_kb(uint8_t index, bool clockwise) {
     if (index == 0) { /* Left Encoder */
         if (clockwise) {
-            tap_code(KC_VOLD);
+            tap_code(KC_MEDIA_PREV_TRACK);
         } else {
-            tap_code(KC_VOLU);
+            tap_code(KC_MEDIA_NEXT_TRACK);
         }
     } else if (index == 1) { /* Right Encoder */
         if (clockwise) {
-            tap_code(KC_MPRV);
+            tap_code(KC_AUDIO_VOL_DOWN);
         } else {
-            tap_code(KC_MNXT);
+            tap_code(KC_AUDIO_VOL_UP);
         }
     }
     return true;

@@ -1,5 +1,3 @@
-CUSTOM_MATRIX = lite		# Custom scanning of matrix
-
 VIA_ENABLE = no
 CONSOLE_ENABLE = no
 COMMAND_ENABLE = no
@@ -7,8 +5,3 @@ RGBLIGHT_ENABLE = no
 POINTING_DEVICE_ENABLE = no
 KEY_OVERRIDE_ENABLE = no
 TAP_DANCE_ENABLE = yes
-
-ENCODER_ENABLE = yes
-# ENCODER_MAP_ENABLE = yes
-
-SRC = matrix.c

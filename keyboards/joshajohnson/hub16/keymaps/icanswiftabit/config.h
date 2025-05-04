@@ -1,0 +1,3 @@
+#define TAPPING_TERM 150
+#define TAPPING_TERM_PER_KEY
+#define NUM_ENCODERS 2

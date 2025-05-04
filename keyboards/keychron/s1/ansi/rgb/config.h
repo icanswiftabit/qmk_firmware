@@ -26,3 +26,4 @@
 
 /* Enable caps-lock LED */
 #define CAPS_LOCK_LED_INDEX 46
+#define COMBO_SHOULD_TRIGGER
