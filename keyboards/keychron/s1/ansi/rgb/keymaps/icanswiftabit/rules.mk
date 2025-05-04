@@ -6,5 +6,7 @@ TAP_DANCE_ENABLE = yes
 COMBO_ENABLE = yes
 CONSOLE_ENABLE = yes
 
-# VPATH += keyboards/keychron/common
-# SRC += keychron_common.c
+RGB_MATRIX_ENABLE = yes
+
+VPATH += keyboards/keychron/common
+SRC += keychron_common.c

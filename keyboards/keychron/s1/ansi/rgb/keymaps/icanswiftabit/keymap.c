@@ -15,17 +15,6 @@
  */
 
  #include QMK_KEYBOARD_H
- 
-
-// clang-format off
-
-void keyboard_post_init_user(void) {
-  // Customise these values to desired behaviour
-  // debug_enable=true;
-  // debug_matrix=true;
-  //debug_keyboard=true;
-  //debug_mouse=true;
-}
 
 enum layers {
   _MAC_BASE,
@@ -41,6 +30,35 @@ enum {
   TD_XCODE_OR_SUBLIMETEXT_OR_TERMINAL_OPEN,
   TD_MERGE_OR_GITHUB_OPEN
 };
+
+bool rgb_matrix_indicators_user(void) {
+  if (layer_state_is(_WIN_GAME)) {
+      rgb_matrix_set_color(34, 0, 255, 0); // Esc
+      rgb_matrix_set_color(35, 0, 255, 0); // Tab
+      rgb_matrix_set_color(38, 0, 255, 0); // W
+      rgb_matrix_set_color(51, 0, 255, 0); // A
+      rgb_matrix_set_color(52, 0, 255, 0); // S
+      rgb_matrix_set_color(53, 0, 255, 0); // D
+      rgb_matrix_set_color(54, 0, 255, 0); // ;
+      rgb_matrix_set_color(64, 0, 255, 0); // X
+      rgb_matrix_set_color(77, 0, 255, 0); // Space
+      rgb_matrix_set_color(78, 0, 255, 0); // L
+      rgb_matrix_set_color(79, 0, 255, 0); // M
+  } else {
+      rgb_matrix_set_color(34, 0, 0, 0); // Esc
+      rgb_matrix_set_color(35, 0, 0, 0); // Tab
+      rgb_matrix_set_color(38, 0, 0, 0); // W
+      rgb_matrix_set_color(51, 0, 0, 0); // A
+      rgb_matrix_set_color(52, 0, 0, 0); // S
+      rgb_matrix_set_color(53, 0, 0, 0); // D
+      rgb_matrix_set_color(54, 0, 0, 0); // ;
+      rgb_matrix_set_color(64, 0, 0, 0); // X
+      rgb_matrix_set_color(77, 0, 0, 0); // Space
+      rgb_matrix_set_color(78, 0, 0, 0); // L
+      rgb_matrix_set_color(79, 0, 0, 0); // M
+  }
+  return false;
+}
 
 void dance_xcode_text_terminal(tap_dance_state_t * state, void * user_data) {
   switch (state -> count) {
@@ -223,7 +241,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_MAC_FN] = LAYOUT_75_ansi(
         QK_BOOT,  KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,    KC_F12,   _______,  _______, RGB_TOG,
         _______,  TD(TD_SLACK_OR_JIRA_OPEN),  TD(TD_XCODE_OR_SUBLIMETEXT_OR_TERMINAL_OPEN),  TD(TD_MERGE_OR_GITHUB_OPEN),  LCTL(LOPT(KC_LEFT)), LCTL(LOPT(KC_RGHT)) ,  _______,  _______,  _______,  _______,  _______,  _______,   _______,  _______, RGB_MOD,
-        _______,  KC_SAFR, LSFT(LGUI(KC_LBRC)), LSFT(LGUI(KC_RBRC)),  KC_MS_BTN1, _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______, _______, RGB_RMOD,
+        RM_TOGG,  KC_SAFR, LSFT(LGUI(KC_LBRC)), LSFT(LGUI(KC_RBRC)),  KC_MS_BTN1, _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______, _______, RGB_RMOD,
         _______,  TD(TD_MESS_TELEGRAM_OPEN), KC_MAIL, KC_THGS,      _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______, _______,  _______,
         _______,  KC_BSPC, LGUI(KC_DOWN), LGUI(KC_UP),  _______,  _______,  _______,  _______,  _______,  _______,  _______, _______,  _______,  _______,
         _______,  _______,  _______,                                KC_ENT,                                _______,  _______,   _______,  _______,  _______,  _______),
@@ -247,8 +265,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_WIN_GAME] = LAYOUT_75_ansi(
       LGUI(KC_L),   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   KC_PSCR,  KC_DEL,   HYPR(KC_F19),
       KC_GRV,       KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,  KC_EQL,   KC_BSPC,            KC_PGUP,
-      KC_P,         KC_Y,     KC_U,     KC_I,     KC_TAB,   KC_O,     KC_Q,     KC_W,     KC_E,     KC_R,     KC_P,      KC_LBRC,  KC_RBRC,  KC_BSLS,            KC_PGDN,
-      KC_H,         KC_J,     KC_K,     KC_L,     KC_ESC,   KC_SCLN,  KC_A,     KC_S,     KC_D,     KC_F,     KC_G,     KC_QUOT,            KC_ENT,             KC_HOME,
+      KC_P,         KC_Y,     KC_U,     KC_ESC,   KC_TAB,   KC_O,     KC_Q,     KC_W,     KC_E,     KC_R,     KC_P,     KC_LBRC,  KC_RBRC,  KC_BSLS,            KC_PGDN,
+      KC_H,         KC_J,     KC_K,     KC_L,     KC_I,     KC_SCLN,  KC_A,     KC_S,     KC_D,     KC_F,     KC_G,     KC_QUOT,            KC_ENT,             KC_HOME,
       KC_LSFT,                KC_N,     KC_M,     KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_COMM,  KC_DOT,   KC_SLSH,            KC_RSFT,  KC_UP,    KC_END,
       KC_LGUI,  KC_RALT,  KC_LCTL,                                KC_SPC,                                              KC_L,      KC_M,  _______,  KC_LEFT,  KC_DOWN,  KC_RGHT),
 };
