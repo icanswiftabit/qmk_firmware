@@ -234,11 +234,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LCTL,  KC_LOPT, KC_LCMD,                               KC_SPC,                                 KC_RCMD, KC_RALT, RGUI(LSFT(KC_P)),  KC_LEFT,  KC_DOWN,  KC_RGHT),
 
     [_MAC_FN] = LAYOUT_75_ansi(
-        QK_BOOT,  KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,    KC_F12,   _______,  _______, RGB_TOG,
-        _______,  TD(TD_SLACK_OR_JIRA_OPEN),  TD(TD_XCODE_OR_SUBLIMETEXT_OR_TERMINAL_OPEN),  TD(TD_MERGE_OR_GITHUB_OPEN),  LCTL(LOPT(KC_LEFT)), LCTL(LOPT(KC_RGHT)) ,  _______,  _______,  _______,  _______,  _______,  _______,   _______,  _______, RGB_MOD,
-        RM_TOGG,  KC_SAFR, LSFT(LGUI(KC_LBRC)), LSFT(LGUI(KC_RBRC)),  KC_MS_BTN1, _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______, _______, RGB_RMOD,
-        _______,  TD(TD_MESS_TELEGRAM_OPEN), KC_MAIL, KC_THGS,      _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______, _______,  _______,
-        _______,  KC_BSPC, LGUI(KC_DOWN), LGUI(KC_UP),  _______,  _______,  _______,  _______,  _______,  _______,  _______, _______,  _______,  _______,
+        QK_BOOT,  KC_F1,                        KC_F2,                                         KC_F3,                        KC_F4,               KC_F5,                 KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______, RGB_TOG,
+        _______,  TD(TD_SLACK_OR_JIRA_OPEN),    TD(TD_XCODE_OR_SUBLIMETEXT_OR_TERMINAL_OPEN),  TD(TD_MERGE_OR_GITHUB_OPEN),  LCTL(LOPT(KC_LEFT)), LCTL(LOPT(KC_RGHT)) ,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______, RGB_MOD,
+        RM_TOGG,  KC_SAFR, LSFT(LCTL(KC_TAB)),  LCTL(KC_TAB),                                  KC_MS_BTN1,                   _______,             _______,               _______,  _______,  _______,  _______,  _______,  _______,  _______,  RGB_RMOD,
+        _______,  TD(TD_MESS_TELEGRAM_OPEN),    KC_MAIL,                                       KC_THGS,                      _______,             _______,               _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
+        _______,  KC_BSPC,                      LGUI(KC_DOWN),                                 LGUI(KC_UP),                  _______,             _______,               _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
         _______,  _______,  _______,                                KC_ENT,                                _______,  _______,   _______,  _______,  _______,  _______),
 
     [_WIN_BASE] = LAYOUT_75_ansi(
@@ -252,7 +252,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_WIN_FN] = LAYOUT_75_ansi(
         _______,  KC_BRID,  KC_BRIU,  KC_TASK,  KC_FLXP,  RGB_VAD,  RGB_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,  KC_VOLD,   KC_VOLU,  _______,  _______,  RGB_TOG,
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______,  _______, RGB_MOD,
-        _______,  _______,  LSFT(LGUI(KC_LBRC)), LSFT(LGUI(KC_RBRC)),  KC_MS_BTN1,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______, _______, RGB_RMOD,
+        _______,  _______,  LSFT(LCTL(KC_TAB)), LCTL(KC_TAB),  KC_MS_BTN1,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______, _______, RGB_RMOD,
         _______,  _______, KC_MESS, _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______, _______,  _______,
         _______,  KC_TELG, KC_MAIL, KC_THGS,  _______,  _______,  _______, _______,  _______,  _______, _______, _______,  _______,  _______,
         _______,  _______,  _______,                                _______,                                _______,  _______, XXXXXXX,  _______,  _______,  _______),
